@@ -3,7 +3,9 @@ class FoodsController < ApplicationController
 
   # GET /foods or /foods.json
   def index
-    @foods = Food.all
+    @current_user = current_user
+    @foods = @current_user.foods
+    # @foods = Food.all
   end
 
   # GET /foods/1 or /foods/1.json
@@ -19,7 +21,10 @@ class FoodsController < ApplicationController
 
   # POST /foods or /foods.json
   def create
-    @food = Food.new(food_params)
+    # @food = Food.new(food_params)
+    @current_user = current_user
+    @food = @current_user.foods.new(food_params)
+    @food.user_id = @current_user.id
 
     respond_to do |format|
       if @food.save

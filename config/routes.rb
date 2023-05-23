@@ -6,5 +6,6 @@ Rails.application.routes.draw do
 
   root to: 'users#index'
 
-  resources :users
+  delete '/foods/:id', to: 'foods#destroy', as: 'foods_destroy'
+
 end
