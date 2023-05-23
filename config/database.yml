@@ -3,16 +3,16 @@ default: &default
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: localhost
-  username: username
-  password: password
+  username: postgres
+  password: momo123456
 
 development:
   <<: *default
-  database: recipe-app
+  database: recipe-app-dev
 
 test:
   <<: *default
-  database: recipe-app
+  database: recipe-app-test
 
 production:
   <<: *default
