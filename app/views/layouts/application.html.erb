@@ -10,6 +10,11 @@
   </head>
 
   <body>
+  <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
+    <p class="flashes">
+      <%= notice %>
+      <%= alert %>
+    </p>
     <%= yield %>
   </body>
 </html>
