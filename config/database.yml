@@ -8,11 +8,11 @@ default: &default
 
 development:
   <<: *default
-  database: recipe-app
+  database: recipe-app-dev
 
 test:
   <<: *default
-  database: recipe-app
+  database: recipe-app-test
 
 production:
   <<: *default

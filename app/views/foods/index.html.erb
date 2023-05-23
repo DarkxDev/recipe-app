@@ -1,11 +1,15 @@
+
+<p style="color: green"><%= notice %></p>
+
 <h1>Foods</h1>
 
-<div class="food-list">
+<div id="foods">
   <% @foods.each do |food| %>
-    <div class="food-card">
-      <%= food.name %>
-    </div>
+    <%= render food %>
+    <p>
+      <%= link_to "Show this food", food %>
+    </p>
   <% end %>
 </div>
 
-<%= link_to "Add a new food", foods_add_path %>
+<%= link_to "New food", new_food_path %>
