@@ -13,6 +13,7 @@
   <body>
     <p style="color: green"><%= notice %></p>
     <p style="color: red"><%= alert %></p>
+    <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: "button-sign-out" %>
     <div class="container">
       <%= yield %>
     </div>
