@@ -23,7 +23,7 @@ class RecipesController < ApplicationController
     @current_user = current_user
     @recipe = @current_user.recipes.new(recipe_params)
     @recipe.user_id = @current_user.id
-    #@recipe = Recipe.new(recipe_params)
+    # @recipe = Recipe.new(recipe_params)
 
     respond_to do |format|
       if @recipe.save
