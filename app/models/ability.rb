@@ -5,6 +5,5 @@ class Ability
     user ||= User.new
 
     can :destroy, Recipe, user_id: user.id
-    
   end
 end
