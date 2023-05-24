@@ -7,23 +7,32 @@ class RecipeFoodsController < ApplicationController
   end
 
   # GET /recipe_foods/1 or /recipe_foods/1.json
-  def show; end
+  def show
+    @recipe = Recipe.find(params[:recipe_id])
+  end
 
   # GET /recipe_foods/new
   def new
+    @recipe = Recipe.find(params[:recipe_id])
+    if @recipe.user_id != current_user.id
+      redirect_to recipe_url(@recipe), alert: 'You donot have the authority to modify that recipe!.'
+    end
     @recipe_food = RecipeFood.new
   end
 
   # GET /recipe_foods/1/edit
-  def edit; end
+  def edit
+    @recipe = Recipe.find(params[:recipe_id])
+  end
 
   # POST /recipe_foods or /recipe_foods.json
   def create
+    @recipe = Recipe.find(params[:recipe_id])
     @recipe_food = RecipeFood.new(recipe_food_params)
-
+    @recipe_food.recipe_id = @recipe.id
     respond_to do |format|
       if @recipe_food.save
-        format.html { redirect_to recipe_food_url(@recipe_food), notice: 'Recipe food was successfully created.' }
+        format.html { redirect_to @recipe, notice: 'Recipe food ingredient was successfully added.' }
         format.json { render :show, status: :created, location: @recipe_food }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -34,10 +43,11 @@ class RecipeFoodsController < ApplicationController
 
   # PATCH/PUT /recipe_foods/1 or /recipe_foods/1.json
   def update
+    @recipe = Recipe.find(params[:recipe_id])
     respond_to do |format|
       if @recipe_food.update(recipe_food_params)
-        format.html { redirect_to recipe_food_url(@recipe_food), notice: 'Recipe food was successfully updated.' }
-        format.json { render :show, status: :ok, location: @recipe_food }
+        format.html { redirect_to @recipe, notice: 'Recipe food was successfully updated.' }
+        format.json { render :show, status: :ok, location: @recipe }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @recipe_food.errors, status: :unprocessable_entity }
@@ -47,10 +57,11 @@ class RecipeFoodsController < ApplicationController
 
   # DELETE /recipe_foods/1 or /recipe_foods/1.json
   def destroy
+    @recipe = Recipe.find(params[:recipe_id])
     @recipe_food.destroy
 
     respond_to do |format|
-      format.html { redirect_to recipe_foods_url, notice: 'Recipe food was successfully destroyed.' }
+      format.html { redirect_to @recipe, notice: 'Recipe food ingredient was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
