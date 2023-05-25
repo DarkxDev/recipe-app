@@ -38,3 +38,7 @@ p {
 h1 {
   text-align: center;
 }
+
+.captialize {
+  text-transform: capitalize;
+}
