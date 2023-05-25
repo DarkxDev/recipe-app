@@ -33,9 +33,9 @@
     <%= form.text_area :description %>
   </div>
 
-  <div>
-    <%= form.label :public, style: "display: block" %>
-    <%= form.check_box :public %>
+  <div class="form-check form-switch ">
+    <%= form.check_box :public, class: "form-check-input" %>
+    <%= form.label :public, class: "form-check-label", style: "display: block" %>
   </div>
   <br>
   <div>
