@@ -3,7 +3,7 @@
   <br>
   <% price = 0%>
   <div id="recipes">
-    <% Recipe.all.each do |recipe| %>
+    <% Recipe.order(created_at: :desc).each do |recipe| %>
       <% if recipe.public %>
       <div class="card mb-3 p-4" style="width: 900px;" onclick="redirectFunction(<%= recipe.id %>)">
         <div class="row g-0">
