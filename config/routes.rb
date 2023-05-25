@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :foods
   devise_for :users
   root to: 'foods#index'
+  get "general_shopping_list", to: 'shopping_list#index'
 
 end

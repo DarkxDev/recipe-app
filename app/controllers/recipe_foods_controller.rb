@@ -30,13 +30,18 @@ class RecipeFoodsController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @recipe_food = RecipeFood.new(recipe_food_params)
     @recipe_food.recipe_id = @recipe.id
-    respond_to do |format|
-      if @recipe_food.save
-        format.html { redirect_to @recipe, notice: 'Recipe food ingredient was successfully added.' }
-        format.json { render :show, status: :created, location: @recipe_food }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @recipe_food.errors, status: :unprocessable_entity }
+    food_id_test = RecipeFood.find_by(recipe_id: @recipe_food.recipe_id, food_id: @recipe_food.food_id)
+    if food_id_test
+      redirect_to @recipe, alert: 'Recipe food ingredient already existed in your recipe food list!.'
+    else
+      respond_to do |format|
+        if @recipe_food.save
+          format.html { redirect_to @recipe, notice: 'Recipe food ingredient was successfully added.' }
+          format.json { render :show, status: :created, location: @recipe_food }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @recipe_food.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
