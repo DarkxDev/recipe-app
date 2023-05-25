@@ -42,3 +42,7 @@ h1 {
 .captialize {
   text-transform: capitalize;
 }
+
+.whiten {
+  color: white !important;
+}
