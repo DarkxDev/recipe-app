@@ -6,7 +6,7 @@ RSpec.describe Recipe, type: :model do
   it 'is valid with valid attributes' do
     recipe = Recipe.new(
       name: 'Apple Pie',
-      user: user
+      user:
     )
     expect(recipe).to be_valid
   end

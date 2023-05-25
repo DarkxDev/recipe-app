@@ -6,7 +6,7 @@ RSpec.describe Food, type: :model do
   it 'is valid with valid attributes' do
     food = Food.new(
       name: 'Apple',
-      user: user
+      user:
     )
     expect(food).to be_valid
   end
