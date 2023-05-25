@@ -16,7 +16,7 @@
     <%= form.number_field :quantity %>
   </div>
   <% options = [] %>
-  <% Food.all.each do |food|%>
+  <% Food.where(user_id: current_user.id).each do |food|%>
     <% option = [ food.name, food.id ]%>
     <% options.push(option) %>
   <% end %>
