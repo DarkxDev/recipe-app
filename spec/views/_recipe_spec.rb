@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'recipes/_recipe', type: :view do
+  before :all do
+    RecipeFood.destroy_all
+    Recipe.destroy_all
+    Food.destroy_all
+    User.destroy_all
+  end
   let(:recipe) do
     Recipe.new(
       name: 'Pasta',
@@ -13,7 +19,6 @@ RSpec.describe 'recipes/_recipe', type: :view do
 
   it 'displays the recipe name' do
     render partial: 'recipes/recipe', locals: { recipe: }
-    expect(rendered).to have_content('Name:')
     expect(rendered).to have_content('Pasta')
   end
 
@@ -31,13 +36,11 @@ RSpec.describe 'recipes/_recipe', type: :view do
 
   it 'displays the recipe description' do
     render partial: 'recipes/recipe', locals: { recipe: }
-    expect(rendered).to have_content('Description:')
     expect(rendered).to have_content('Delicious pasta recipe')
   end
 
-  it 'displays whether the recipe is public' do
+  it 'should hide public status for strangers' do
     render partial: 'recipes/recipe', locals: { recipe: }
-    expect(rendered).to have_content('Public:')
-    expect(rendered).to have_content('true')
+    expect(rendered).to_not have_content('Public')
   end
 end

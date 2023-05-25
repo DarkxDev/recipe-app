@@ -13,7 +13,7 @@ RSpec.describe 'foods/index', type: :view do
     expect(rendered).to have_content('#')
     expect(rendered).to have_content('Name')
     expect(rendered).to have_content('Measurement unit')
-    expect(rendered).to have_content('Price')
+    expect(rendered).to have_content('Unit price')
     expect(rendered).to have_content('Quantity')
     expect(rendered).to have_content('Show this food')
     expect(rendered).to have_content('Actions')
