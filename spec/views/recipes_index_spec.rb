@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe 'recipes/index', type: :view do
   before do
     assign(:recipes, [
-      Recipe.create(name: 'Pasta', description: 'Delicious pasta recipe'),
-      Recipe.create(name: 'Pizza', description: 'Tasty pizza recipe')
-    ])
+             Recipe.create(name: 'Pasta', description: 'Delicious pasta recipe'),
+             Recipe.create(name: 'Pizza', description: 'Tasty pizza recipe')
+           ])
   end
 
   it 'displays the recipe names' do

@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe 'recipe_foods/index', type: :view do
   before do
     assign(:recipe_foods, [
-      RecipeFood.new(id: 1),
-      RecipeFood.new(id: 2)
-    ])
+             RecipeFood.new(id: 1),
+             RecipeFood.new(id: 2)
+           ])
   end
 
   it 'renders the recipe_food partial for each recipe food' do

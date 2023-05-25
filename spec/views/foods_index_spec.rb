@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe 'foods/index', type: :view do
   before do
     assign(:foods, [
-      Food.create(name: 'Apple', measurement_unit: 'Piece', price: 1, quantity: 10),
-      Food.create(name: 'Banana', measurement_unit: 'Bunch', price: 2, quantity: 5)
-    ])
+             Food.create(name: 'Apple', measurement_unit: 'Piece', price: 1, quantity: 10),
+             Food.create(name: 'Banana', measurement_unit: 'Bunch', price: 2, quantity: 5)
+           ])
   end
 
   it 'displays the table headers' do

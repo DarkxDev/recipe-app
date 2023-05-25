@@ -4,7 +4,7 @@ RSpec.describe 'recipe_foods/_recipe_food', type: :view do
   let(:recipe_food) { RecipeFood.new(quantity: 2, recipe_id: 1, food_id: 2) }
 
   before do
-    render partial: 'recipe_foods/recipe_food', locals: { recipe_food: recipe_food }
+    render partial: 'recipe_foods/recipe_food', locals: { recipe_food: }
   end
 
   it 'displays the quantity' do

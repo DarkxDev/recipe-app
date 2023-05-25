@@ -12,31 +12,31 @@ RSpec.describe 'recipes/_recipe', type: :view do
   end
 
   it 'displays the recipe name' do
-    render partial: 'recipes/recipe', locals: { recipe: recipe }
+    render partial: 'recipes/recipe', locals: { recipe: }
     expect(rendered).to have_content('Name:')
     expect(rendered).to have_content('Pasta')
   end
 
   it 'displays the recipe preparation time' do
-    render partial: 'recipes/recipe', locals: { recipe: recipe }
+    render partial: 'recipes/recipe', locals: { recipe: }
     expect(rendered).to have_content('Preparation time:')
     expect(rendered).to have_content(10)
   end
 
   it 'displays the recipe cooking time' do
-    render partial: 'recipes/recipe', locals: { recipe: recipe }
+    render partial: 'recipes/recipe', locals: { recipe: }
     expect(rendered).to have_content('Cooking time:')
     expect(rendered).to have_content(20)
   end
 
   it 'displays the recipe description' do
-    render partial: 'recipes/recipe', locals: { recipe: recipe }
+    render partial: 'recipes/recipe', locals: { recipe: }
     expect(rendered).to have_content('Description:')
     expect(rendered).to have_content('Delicious pasta recipe')
   end
 
   it 'displays whether the recipe is public' do
-    render partial: 'recipes/recipe', locals: { recipe: recipe }
+    render partial: 'recipes/recipe', locals: { recipe: }
     expect(rendered).to have_content('Public:')
     expect(rendered).to have_content('true')
   end
