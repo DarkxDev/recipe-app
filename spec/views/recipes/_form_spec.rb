@@ -21,7 +21,7 @@ RSpec.describe 'recipes/new', type: :view do
 
   it 'displays error messages if recipe has errors' do
     recipe.errors.add(:name, "can't be blank")
-    recipe.errors.add(:description, "is too short")
+    recipe.errors.add(:description, 'is too short')
 
     render
 
