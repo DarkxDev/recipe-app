@@ -6,7 +6,10 @@ RSpec.describe Food, type: :model do
   it 'is valid with valid attributes' do
     food = Food.new(
       name: 'Apple',
-      user:
+      user:,
+      measurement_unit: 'gram',
+      price: 15,
+      quantity: 500
     )
     expect(food).to be_valid
   end

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   end
   resources :foods
   devise_for :users
-  root to: 'foods#index'
+  root to: 'recipes#index'
   get "general_shopping_list", to: 'shopping_list#index'
   get "public_recipes", to: 'public_recipe#index'
 
