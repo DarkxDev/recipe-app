@@ -16,4 +16,4 @@ test:
 
 production:
   <<: *default
-  database: recipe-app
+  url: <%= ENV['DATABASE_URL'] %>
